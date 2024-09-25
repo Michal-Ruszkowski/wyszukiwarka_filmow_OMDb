@@ -8,13 +8,23 @@
         if (data.Search) {
             for (const movie of data.Search) {
                 const row = resultsBody.insertRow();
-                row.insertCell().textContent = movie.Title;
-                row.insertCell().textContent = movie.Year;
-
-                const country = await getMovieCountry(movie.Title);
-                row.insertCell().textContent = country;
                 
-                row.insertCell().textContent = translateType(movie.Type);
+                const titleCell = row.insertCell();
+                titleCell.textContent = movie.Title;
+                titleCell.classList.add('cell');
+        
+                const yearCell = row.insertCell();
+                yearCell.textContent = movie.Year;
+                yearCell.classList.add('cell');
+        
+                const country = await getMovieCountry(movie.Title);
+                const countryCell = row.insertCell();
+                countryCell.textContent = country;
+                countryCell.classList.add('cell');
+        
+                const typeCell = row.insertCell();
+                typeCell.textContent = translateType(movie.Type);
+                typeCell.classList.add('cell');
             }
         }
     };
