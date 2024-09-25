@@ -31,7 +31,7 @@
 
     const getMovieCountry = async (title) => {
         try {
-            const response = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&t=${title}`);
+            const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&t=${title}`);
             const movieData = await response.json();
             return movieData.Country || 'Brak danych';
         } catch (error) {
@@ -49,7 +49,7 @@
             return;
         }
 
-        const url = `http://www.omdbapi.com/?apikey=${API_KEY}&s=${title}&type=${type}`;
+        const url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${title}&type=${type}`;
 
         fetch(url)
             .then(response => response.json())
