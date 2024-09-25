@@ -1,5 +1,5 @@
 (() => {
-    const API_KEY = '';
+    const API_KEY = 'e7cd855b';
 
     const searchMovies = () => {
         const title = document.getElementById('titleInput').value;
