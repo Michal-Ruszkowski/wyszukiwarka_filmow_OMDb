@@ -14,7 +14,7 @@
                 const country = await getMovieCountry(movie.Title);
                 row.insertCell().textContent = country;
                 
-                row.insertCell().textContent = movie.Type;
+                row.insertCell().textContent = translateType(movie.Type);
             }
         }
     };
@@ -55,6 +55,15 @@
                 console.error('Wystąpił błąd:', error);
                 alert('Wystąpił błąd podczas wyszukiwania');
             });
+    };
+
+    const translateType = type => {
+        switch (type) {
+            case 'movie': return 'Film';
+            case 'series': return 'Serial';
+            case 'episode': return 'Epizod';
+            default: return type;
+        }
     };
 
     const button = document.getElementById('button');
