@@ -10,9 +10,23 @@
                 const row = resultsBody.insertRow();
                 row.insertCell().textContent = movie.Title;
                 row.insertCell().textContent = movie.Year;
-                row.insertCell().textContent = movie.Country;
+
+                const country = await getMovieCountry(movie.Title);
+                row.insertCell().textContent = country;
+                
                 row.insertCell().textContent = movie.Type;
             }
+        }
+    };
+
+    const getMovieCountry = async (title) => {
+        try {
+            const response = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&t=${title}`);
+            const movieData = await response.json();
+            return movieData.Country || 'Brak danych';
+        } catch (error) {
+            console.error('Błąd podczas pobierania szczegółów filmu:', error);
+            return 'Brak danych';
         }
     };
 
