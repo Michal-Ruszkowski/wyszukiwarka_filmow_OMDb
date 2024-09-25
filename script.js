@@ -1,6 +1,21 @@
 (() => {
     const API_KEY = 'e7cd855b';
 
+    const displayResults = async (data) => {
+        const resultsBody = document.getElementById('resultsBody');
+        resultsBody.innerHTML = '';
+
+        if (data.Search) {
+            for (const movie of data.Search) {
+                const row = resultsBody.insertRow();
+                row.insertCell().textContent = movie.Title;
+                row.insertCell().textContent = movie.Year;
+                row.insertCell().textContent = movie.Country;
+                row.insertCell().textContent = movie.Type;
+            }
+        }
+    };
+
     const searchMovies = () => {
         const title = document.getElementById('titleInput').value;
         const type = document.getElementById('typeSelect').value;
@@ -17,6 +32,7 @@
             .then(data => {
                 if (data.Response === "True") {
                     console.log(data);
+                    displayResults(data)
                 } else {
                     alert('Nie znaleziono wyników.');
                 }
