@@ -9,20 +9,20 @@
 <body>
     <div class="container">
         <h1>Wyszukiwarka filmów OMDb</h1>
-        <input type="text" id="titleInput" placeholder="Wpisz fragment tytułu">
-        <select id="typeSelect">
+        <input type="text" id="titleInput" class="formElement" placeholder="Wpisz fragment tytułu">
+        <select id="typeSelect" class="formElement">
             <option value="movie">Film</option>
             <option value="series">Serial</option>
             <option value="episode">Epizod</option>
         </select>
         <button id="button">Szukaj</button>
-        <table id="resultsTable">
+        <table id="resultsTable" class="table">
             <thead>
                 <tr>
-                    <th>Tytuł</th>
-                    <th>Rok</th>
-                    <th>Kraj</th>
-                    <th>Typ</th>
+                    <th class="cell cell--header">Tytuł</th>
+                    <th class="cell cell--header">Rok</th>
+                    <th class="cell cell--header">Kraj</th>
+                    <th class="cell cell--header">Typ</th>
                 </tr>
             </thead>
             <tbody id="resultsBody"></tbody>
